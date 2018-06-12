@@ -1,3 +1,9 @@
+---
+
+/!\ Work in progress, massive changes are to be applied!
+
+---
+
 # Zabbix Simple Web Check
 
 Based on https://github.com/a-schild/zabbix-ssl 
