@@ -1,0 +1,6 @@
+{
+    "data":[
+	{ "{#WEBNAME}": "site1.domain.com", "{#REGEXP}":"Powered.by.Wordpress"},
+	{ "{#WEBNAME}": "site2.domain.com", "{#REGEXP}":"Powered.by.Joomla"}
+    ]
+}
