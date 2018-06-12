@@ -10,11 +10,11 @@ Based on https://github.com/a-schild/zabbix-ssl
 
 The goal is to be able to monitor large number of sites with one simple json config.
 
-```
+```javascript
 {
     "data":[
-        { "{#WEBNAME}": "site1.domain.com", "{#REGEXP}":"Powered.by.Wordpress"},
-        { "{#WEBNAME}": "site2.domain.com", "{#REGEXP}":"Powered.by.Joomla"}
+        { "{#URL}": "https://site1.domain.com", "{#REGEXP}":"Powered.by.Wordpress"},
+        { "{#URL}": "http://site2.domain.com/app", "{#REGEXP}":"Powered.by.Joomla"}
     ]
 }
 ```
@@ -26,13 +26,13 @@ In case of failure trigger is activated.
 It doesn't collect any data.
 
 Following curl options are set by default:
---insecure - SSL certificates should be verified in separate process
---silent 
---max-filesize 10000000 - in case the web application went rogue
---retry 12 --retry-delay 15 - retry 12 times with 15s delays between
---retry-connrefused - treat "connection refused" as transient error (to handle web server restarts) 
---connect-timeout 30 
---max-time 600 - just in case
+* --insecure - SSL certificates should be verified in separate process
+* --silent 
+* --max-filesize 10000000 - in case the web application went rogue
+* --retry-connrefused - treat "connection refused" as transient error (to handle web server restarts) 
+* --connect-timeout 30 
+* --max-time 600 - just in case
+
 
 ## How to install ##
 * Download the simplewebcheck.sh file to your **Zabbix Server**
@@ -45,7 +45,7 @@ Following curl options are set by default:
   of your **client agent** (The server where your sites reside)
 * Put the /etc/zabbix/simplewebcheck_sites.json in the config directory
   of your **client agent** (The server where your sites reside)
-  and modify the list of sites which should be checked.
+  and modify the list of urls which should be checked.
   Make sure it has a valid json syntax
 * Restart the zabbix agent
 
